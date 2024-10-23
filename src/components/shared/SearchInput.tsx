@@ -48,7 +48,7 @@ const SearchInput: React.FC = () => {
 				value={searchText}
 				onChange={handleInputChange}
 				placeholder="Search by title..."
-				className="border-0 dark:bg-white text-black"
+				className="dark:border-0 dark:bg-white text-black"
 			/>
 			{searchText && (
 				<button
