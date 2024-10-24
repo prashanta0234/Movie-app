@@ -14,8 +14,6 @@ const MovieList = () => {
 	const [errorMessage, setErrorMessage] = useState("");
 	const { ref, inView } = useInView();
 	const [page, setPage] = useState(1);
-	console.log(page);
-	console.log(movies);
 
 	const fetchData = async () => {
 		setIsLoading(true);
