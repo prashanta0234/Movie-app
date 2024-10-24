@@ -38,7 +38,7 @@ export const reqHelper = async ({
 
 	try {
 		const response = await fetch(
-			`${backendUrl}${endpoint}?api_key=${apiKey}&page=${page}&query=${query}`,
+			`${backendUrl}${endpoint}?api_key=${apiKey}&query=${query}&page=${page}`,
 			fetchOptions
 		);
 
