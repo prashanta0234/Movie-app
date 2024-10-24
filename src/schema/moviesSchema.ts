@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const movieSchema = z.object({
 	adult: z.boolean(),
-	backdrop_path: z.string(),
+	backdrop_path: z.string().nullable(),
 	genre_ids: z.array(z.number()),
 	id: z.number(),
 	original_language: z.string(),
@@ -10,9 +10,7 @@ const movieSchema = z.object({
 	overview: z.string(),
 	popularity: z.number(),
 	poster_path: z.string(),
-	release_date: z.string().refine((date) => !isNaN(Date.parse(date)), {
-		message: "Invalid date format",
-	}),
+	release_date: z.string(),
 	title: z.string(),
 	video: z.boolean(),
 	vote_average: z.number(),

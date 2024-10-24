@@ -3,11 +3,11 @@
 import { reqHelper } from "@/helper/reqHelper";
 import { moviesSchema } from "@/schema/moviesSchema";
 
-export const getPopularMoviesAction = async (query: string) => {
+export const getPopularMoviesAction = async ({ page }: { page: number }) => {
 	const response = await reqHelper({
 		method: "GET",
 		endpoint: `/movie/popular`,
-		query,
+		page,
 	});
 
 	const result = moviesSchema.safeParse(response.results);

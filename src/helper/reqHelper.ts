@@ -5,6 +5,7 @@ type TFetchOption = {
 	body?: unknown;
 	endpoint: string;
 	query?: string;
+	page?: number;
 };
 export const getBearerToken = () => {
 	const token = cookies().get("user-token")?.value;
@@ -16,6 +17,7 @@ export const reqHelper = async ({
 	endpoint,
 	body,
 	query,
+	page,
 }: TFetchOption) => {
 	const token = await getBearerToken();
 
@@ -36,7 +38,7 @@ export const reqHelper = async ({
 
 	try {
 		const response = await fetch(
-			`${backendUrl}${endpoint}?api_key=${apiKey}&query=${query}`,
+			`${backendUrl}${endpoint}?api_key=${apiKey}&page=${page}&query=${query}`,
 			fetchOptions
 		);
 
