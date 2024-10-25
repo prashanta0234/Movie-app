@@ -4,10 +4,10 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { BookmarkPlus, BookmarkCheck } from "lucide-react"; // Add a check icon for watched
 import { addWatchList, checkWatchlist } from "@/server-actions/indexdbAction";
-import { MovieDetailsType } from "@/schema/movieDetailsSchema";
 import { toast } from "sonner";
+import { watchlist } from "@/types/watchList";
 
-const AddWatchList = ({ movie }: { movie: MovieDetailsType }) => {
+const AddWatchList = (movie: watchlist) => {
 	const [isInWatchlist, setIsInWatchlist] = useState(false);
 
 	useEffect(() => {
@@ -29,14 +29,19 @@ const AddWatchList = ({ movie }: { movie: MovieDetailsType }) => {
 
 	return (
 		<div>
-			<p>Add to watchlist: </p>
-			<Button onClick={handleWatchlistAddRemove} className="text-xl ">
-				{isInWatchlist ? (
+			{movie.isWatchList ? (
+				<Button onClick={movie.onRemove} className="text-xl ">
 					<BookmarkCheck className="dark:text-white text-black" />
-				) : (
-					<BookmarkPlus className="dark:text-white text-black" />
-				)}
-			</Button>
+				</Button>
+			) : (
+				<Button onClick={handleWatchlistAddRemove} className="text-xl ">
+					{isInWatchlist ? (
+						<BookmarkCheck className="dark:text-white text-black" />
+					) : (
+						<BookmarkPlus className="dark:text-white text-black" />
+					)}
+				</Button>
+			)}
 		</div>
 	);
 };

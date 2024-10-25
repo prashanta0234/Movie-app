@@ -11,7 +11,7 @@ const Error = ({
 	reset: () => void;
 }) => {
 	return (
-		<div className="w-full h-[90vh]">
+		<div className="w-full h-[80vh]">
 			<div className="w-full flex flex-col items-center justify-center h-full">
 				<h1>{error.message}</h1>
 				<Button onClick={() => reset()}>Try again</Button>

@@ -27,7 +27,14 @@ const MoviesDetails = async ({ movie }: { movie: MovieDetailsType }) => {
 					<p className="mt-2">{overview}</p>
 					<p className="mt-2 text-gray-500">Release Date: {release_date}</p>
 				</div>
-				<AddWatchList movie={movie} />
+				<p className="text-bold">Add to watch list:</p>
+				<AddWatchList
+					id={movie.id}
+					poster_path={movie.poster_path}
+					release_date={movie.release_date}
+					title={movie.title}
+					vote_average={movie.vote_average}
+				/>
 				<div className=" md:h-[70%] lg:h-[75%] xl:h-full 2xl:h-[125%] mt-2">
 					<h1 className="font-bold text-primary text-lg">Cast: </h1>
 					<div className="md:h-full grid grid-cols-2 md:grid-cols-3  gap-2  overflow-scroll  overflow-x-hidden">

@@ -26,7 +26,7 @@ const Nav = () => {
 					<TooltipProvider>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<Link href={"/"}>
+								<Link href={"/watchlist"}>
 									<Bookmark className="text-white cursor-pointer" />
 								</Link>
 							</TooltipTrigger>

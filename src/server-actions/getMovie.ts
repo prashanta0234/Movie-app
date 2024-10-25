@@ -22,7 +22,6 @@ export const getMovieAction = async ({ id }: { id: number }) => {
 				"Sorry, there seems to be an issue with our server. Please contact us."
 			);
 		}
-		// return result.data;
 		return response;
 	} catch (error) {
 		console.error(`Error fetching popular movies: ${error}`);

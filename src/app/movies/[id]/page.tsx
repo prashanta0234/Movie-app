@@ -1,17 +1,24 @@
 import MoviesDetails from "@/components/movies/MoviesDetails";
 import RelatedMovies from "@/components/movies/RelatedMovies";
+import {
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbList,
+	BreadcrumbPage,
+	BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { MovieDetailsType } from "@/schema/movieDetailsSchema";
 import { MovieType } from "@/schema/moviesSchema";
 import { getMovieAction } from "@/server-actions/getMovie";
 import { getMoviesAction } from "@/server-actions/getMovies";
 import { Metadata } from "next";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
 	params: { id: string };
 };
 
-// Fetch metadata dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const { id } = params;
 	const movie = await getMovieAction({ id: Number(id) });
@@ -58,8 +65,7 @@ export async function generateStaticParams() {
 const MoviePage = async ({ params }: { params: { id: string } }) => {
 	const { id } = params;
 
-	let movie: MovieDetailsType | null = null; // Ensure the movie can be null
-
+	let movie: MovieDetailsType | null = null;
 	try {
 		movie = await getMovieAction({ id: Number(id) });
 	} catch (error) {
@@ -72,6 +78,19 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
 
 	return (
 		<div>
+			<Breadcrumb className="my-4">
+				<BreadcrumbList>
+					<BreadcrumbItem>
+						<Link href="/">Home</Link>
+					</BreadcrumbItem>
+					<BreadcrumbSeparator />
+					<BreadcrumbPage>
+						<Link href={`/movies${id}`}>
+							<p className="line-clamp-1">{movie.title}</p>
+						</Link>
+					</BreadcrumbPage>
+				</BreadcrumbList>
+			</Breadcrumb>
 			<MoviesDetails movie={movie} />
 			<RelatedMovies id={movie.id} />
 		</div>
@@ -80,5 +99,4 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
 
 export default MoviePage;
 
-// Enable ISR by setting revalidate option inside fetch calls
-export const revalidate = 60; // Revalidate the page every 60 seconds
+export const revalidate = 60;
