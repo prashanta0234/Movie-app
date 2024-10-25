@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "../components/shared/Nav";
 import { Suspense } from "react";
+import { Toaster } from "sonner";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({
 				<Suspense fallback={<p>Loading...</p>}>
 					<Nav />
 					<div className="my-10 container px-4">{children}</div>
+					<Toaster />
 				</Suspense>
 			</body>
 		</html>

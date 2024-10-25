@@ -1,6 +1,6 @@
 import React from "react";
 import SearchInput from "./SearchInput";
-import { Clock9 } from "lucide-react";
+import { Bookmark } from "lucide-react";
 import {
 	Tooltip,
 	TooltipContent,
@@ -27,7 +27,7 @@ const Nav = () => {
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<Link href={"/"}>
-									<Clock9 className="text-white cursor-pointer" />
+									<Bookmark className="text-white cursor-pointer" />
 								</Link>
 							</TooltipTrigger>
 							<TooltipContent>
