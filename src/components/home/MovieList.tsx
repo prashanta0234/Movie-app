@@ -82,7 +82,7 @@ const MovieList = () => {
 				<p className="font-bold text-lg text-primary">
 					{query ? `Search Results for "${query}":` : "Popular Movies:"}
 				</p>
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-4 my-2">
+				<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-2">
 					{movies.map((movie, idx: number) => (
 						<MovieCard data={movie} key={idx} />
 					))}

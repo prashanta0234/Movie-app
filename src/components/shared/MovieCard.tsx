@@ -1,3 +1,4 @@
+import { imageMaker } from "@/helper/imageMaker";
 import { MovieType } from "@/schema/moviesSchema";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,11 +10,11 @@ const MovieCard = ({ data }: { data: MovieType }) => {
 		<Link href={`/movies/${id}`}>
 			<div className="min-h-[30%] w-full shadow-lg p-2 rounded-md dark:bg-primary border border-primary">
 				<Image
-					src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+					src={imageMaker(poster_path as string)}
 					alt="Movie image"
 					width={300}
 					height={300}
-					className="w-fill h-80"
+					className="w-full h-80"
 				/>
 				<div className="py-2">
 					<p className="font-bold md:line-clamp-1">Name: {title}</p>

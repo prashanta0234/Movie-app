@@ -1,17 +1,17 @@
 "use server";
 
 import { reqHelper } from "@/helper/reqHelper";
-import { movieSchema } from "@/schema/movieDetailsSchema";
+import { moviesSchema } from "@/schema/moviesSchema";
 
-export const getMovieAction = async ({ id }: { id: number }) => {
+export const getRecommendedMovieAction = async ({ id }: { id: number }) => {
 	try {
 		const response = await reqHelper({
 			method: "GET",
-			endpoint: `/movie/${id}`,
+			endpoint: `/movie/${id}/recommendations`,
 		});
 		console.log(response);
 
-		const result = movieSchema.safeParse(response);
+		const result = moviesSchema.safeParse(response.results);
 
 		if (!result.success) {
 			console.error(
@@ -23,8 +23,7 @@ export const getMovieAction = async ({ id }: { id: number }) => {
 				"Sorry, there seems to be an issue with our server. Please contact us."
 			);
 		}
-		// return result.data;
-		return response;
+		return result.data;
 	} catch (error) {
 		console.error(`Error fetching popular movies: ${error}`);
 		throw error;
