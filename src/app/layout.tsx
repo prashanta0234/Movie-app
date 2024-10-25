@@ -30,8 +30,8 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-center w-full flex-col`}
 			>
-				<Nav />
 				<Suspense fallback={<p>Loading...</p>}>
+					<Nav />
 					<div className="my-10 container px-4">{children}</div>
 				</Suspense>
 			</body>

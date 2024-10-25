@@ -4,9 +4,7 @@ import { MovieDetailsType } from "@/schema/movieDetailsSchema";
 import { MovieType } from "@/schema/moviesSchema";
 import { getMovieAction } from "@/server-actions/getMovie";
 import { getMoviesAction } from "@/server-actions/getMovies";
-import getTotalPageAction from "@/server-actions/getTotalPage";
 import { Metadata } from "next";
-import Image from "next/image";
 import React from "react";
 
 type Props = {
@@ -44,19 +42,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	};
 }
 
-// export async function generateStaticParams() {
-// 	let allMovies: MovieType[] = [];
-// 	const totalPages = await getTotalPageAction();
+export async function generateStaticParams() {
+	let allMovies: MovieType[] = [];
 
-// 	for (let i = 1; i <= totalPages; i++) {
-// 		const movies: MovieType[] = await getMoviesAction({ page: i });
-// 		allMovies = [...allMovies, ...movies];
-// 	}
+	for (let i = 1; i <= 500; i++) {
+		const movies: MovieType[] = await getMoviesAction({ page: i });
+		allMovies = [...allMovies, ...movies];
+	}
 
-// 	return allMovies.map((movie) => ({
-// 		id: String(movie.id),
-// 	}));
-// }
+	return allMovies.map((movie) => ({
+		id: String(movie.id),
+	}));
+}
 
 const MoviePage = async ({ params }: { params: { id: string } }) => {
 	const { id } = params;

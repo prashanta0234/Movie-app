@@ -9,7 +9,6 @@ export const getRecommendedMovieAction = async ({ id }: { id: number }) => {
 			method: "GET",
 			endpoint: `/movie/${id}/recommendations`,
 		});
-		console.log(response);
 
 		const result = moviesSchema.safeParse(response.results);
 

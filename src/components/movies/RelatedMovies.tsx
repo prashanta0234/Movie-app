@@ -9,7 +9,7 @@ const RelatedMovies = async ({ id }: { id: number }) => {
 			<h1 className="text-xl font-bold my-4">Recommendations:</h1>
 			<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
 				{movies.map((movie, idx) => (
-					<MovieCard data={movie} />
+					<MovieCard data={movie} key={idx} />
 				))}
 			</div>
 		</div>

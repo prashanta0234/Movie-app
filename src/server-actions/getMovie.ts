@@ -9,7 +9,6 @@ export const getMovieAction = async ({ id }: { id: number }) => {
 			method: "GET",
 			endpoint: `/movie/${id}`,
 		});
-		console.log(response);
 
 		const result = movieSchema.safeParse(response);
 
