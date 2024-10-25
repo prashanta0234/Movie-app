@@ -20,6 +20,10 @@ export const reqHelper = async ({
 		headers: {
 			"Content-Type": "application/json",
 		},
+		cache: "force-cache",
+		next: {
+			revalidate: 60,
+		},
 	};
 	try {
 		const response = await fetch(

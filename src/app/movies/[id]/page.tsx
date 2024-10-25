@@ -52,6 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export async function generateStaticParams() {
 	let allMovies: MovieType[] = [];
 
+	// here i prefetch only 500 pages data because TMDB API accept page range 1-500
 	for (let i = 1; i <= 500; i++) {
 		const movies: MovieType[] = await getMoviesAction({ page: i });
 		allMovies = [...allMovies, ...movies];
@@ -98,5 +99,3 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
 };
 
 export default MoviePage;
-
-export const revalidate = 60;

@@ -34,9 +34,12 @@ const AddWatchList = (movie: watchlist) => {
 					<BookmarkCheck className="dark:text-white text-black" />
 				</Button>
 			) : (
-				<Button onClick={handleWatchlistAddRemove} className="text-xl ">
+				<Button
+					onClick={handleWatchlistAddRemove}
+					className={`text-xl ${isInWatchlist && "bg-red-600"}`}
+				>
 					{isInWatchlist ? (
-						<BookmarkCheck className="dark:text-white text-black" />
+						<BookmarkCheck className="dark:text-white text-white" />
 					) : (
 						<BookmarkPlus className="dark:text-white text-black" />
 					)}

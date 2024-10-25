@@ -10,6 +10,7 @@ import MovieCard from "../shared/MovieCard";
 import NoDataFound from "../shared/NoDataFound";
 import HandlePerseError from "../shared/HandlePerseError";
 import { useErrorStore } from "@/zutand/zutand.store";
+import SkeltonList from "../shared/SkeltonList";
 
 const Watchlist = () => {
 	const [watchlist, setWatchlist] = useState<MovieDetailsType[]>([]);
@@ -50,7 +51,7 @@ const Watchlist = () => {
 
 	let content;
 	if (watchlist.length === 0 && loading) {
-		content = <p>Loading........</p>;
+		content = <SkeltonList />;
 	} else if (isError) {
 		content = <HandlePerseError message={errorMessage} />;
 	} else if (watchlist.length === 0 && !loading) {

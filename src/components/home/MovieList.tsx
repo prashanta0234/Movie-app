@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { useSearchParams } from "next/navigation";
 import { useErrorStore } from "@/zutand/zutand.store";
 import HandlePerseError from "../shared/HandlePerseError";
+import SkeltonList from "../shared/SkeltonList";
 
 const MovieList = () => {
 	const [loading, setIsLoading] = useState(true);
@@ -71,7 +72,7 @@ const MovieList = () => {
 
 	let content;
 	if (movies.length === 0 && loading) {
-		content = <p>Loading........</p>;
+		content = <SkeltonList />;
 	} else if (isError) {
 		content = <HandlePerseError message={errorMessage} />;
 	} else if (movies.length === 0 && !loading) {
