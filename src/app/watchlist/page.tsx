@@ -6,9 +6,14 @@ import {
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Watchlist from "@/components/watchlist/WatchList";
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 
+export const metadata: Metadata = {
+	title: "Watchlist - Movie app",
+	description: "Worlds most popular movie site",
+};
 const page = () => {
 	return (
 		<div>

@@ -3,7 +3,7 @@ import SearchInput from "@/components/shared/SearchInput";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Movie app",
+	title: "Home - Movie app",
 	description: "Worlds most popular movies site",
 };
 const Home = () => {
