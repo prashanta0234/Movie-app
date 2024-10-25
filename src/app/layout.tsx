@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "../components/shared/Nav";
 import { Suspense } from "react";
+import { Toaster } from "sonner";
+import SkeltonList from "@/components/shared/SkeltonList";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -28,11 +30,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-center w-full flex-col`}
 			>
-				<Suspense>
+				<Suspense fallback={<SkeltonList />}>
 					<Nav />
-					<div>{children}</div>
+					<div className="my-10 container px-4">{children}</div>
+					<Toaster />
 				</Suspense>
 			</body>
 		</html>

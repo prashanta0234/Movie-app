@@ -1,6 +1,6 @@
 import React from "react";
 import SearchInput from "./SearchInput";
-import { Clock9 } from "lucide-react";
+import { Bookmark } from "lucide-react";
 import {
 	Tooltip,
 	TooltipContent,
@@ -15,7 +15,9 @@ const Nav = () => {
 		<div className="sticky top-0 z-50 min-h-14 w-full bg-primary flex justify-center items-center">
 			<div className="container flex h-full w-full items-center justify-between px-4 ">
 				<div>
-					<p className="font-bold text-xl text-white">Logo</p>
+					<Link href={"/"}>
+						<p className="font-bold text-xl text-white">Logo</p>
+					</Link>
 				</div>
 				<div className="w-[50%] hidden md:block">
 					<SearchInput />
@@ -24,8 +26,8 @@ const Nav = () => {
 					<TooltipProvider>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<Link href={"/"}>
-									<Clock9 className="text-white cursor-pointer" />
+								<Link href={"/watchlist"}>
+									<Bookmark className="text-white cursor-pointer" />
 								</Link>
 							</TooltipTrigger>
 							<TooltipContent>
