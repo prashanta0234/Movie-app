@@ -5,3 +5,4 @@ API_KEY="130fc3943ce6738a2162a7147158a9cf"
 BACKEND_URL="https://api.themoviedb.org/3"
 IMAGE_URL="https://image.tmdb.org/t/p/w500"
 ```
+You should add 'user-token': 'can be anything' to your browser cookies to access /watchlist.
